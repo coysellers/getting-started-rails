@@ -34,3 +34,17 @@ The `controller` recieves requests for the app and a `view's` purpose is to disp
 
 To Create a new `controller`, cd into the application folder and run `$ bin/rails generate controller Welcome index`
 * `Welcome` is the new controller and the action is `index`.
+
+For this instance the controller is located at `app/controllers/welcome_controller.rb` and the view is located at `app/views/welcome/index.html.erb`.
+
+Remove contents of the `index.html.erb` and replace with `<h1>Hello, Rails!</h1>`.
+
+Modify the `config/routes.rb` file by adding `root 'welcome#index'`.
+
+```
+Rails.application.routes.draw do
+    get 'welcome/index'
+    
+    root 'welcome#index'
+end
+```
