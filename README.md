@@ -2,6 +2,21 @@
 
 The notes below are simply for my personal use and career development. For the source of these notes visit the official [set-by-step guide](http://guides.rubyonrails.org/getting_started.html) to getting starting with Rails.
 
+## Section Checklist
+
+- [x] 1 Guide Assumptions
+- [x] 2 What is Rails?
+- [x] 3 Creating a New Rails Project
+- [x] 4 Hello, Rails!
+- [ ] 5 Getting Up and Running
+- [ ] 6 Adding a Second Model
+- [ ] 7 Refactoring
+- [ ] 8 Deleting Comments
+- [ ] 9 Security
+- [ ] 10 What's Next?
+- [ ] 11 Configuration Gotchas
+
+
 ## Setup
 
 * Check Ruby version `$ ruby -v`
