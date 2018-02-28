@@ -38,8 +38,6 @@ In application folder, run `$ bin/rails server` then visit http://localhost:3000
 
 ### Say "Hello"
 
-Get Rails to say "Hello".
-
 Minimum requirements:
 * controller
 * view
@@ -90,6 +88,10 @@ class ArticlesController < ApplicationController
 end
 ```
 
+`/articles/new.html.erb`
+* `.html` is the format
+* `.erb` is the handler
+
 
 ### Common Commands
 
@@ -99,6 +101,5 @@ end
 | $ sqlite3 --version | Checks sqlite3 version |
 | $ gem install rails | Install Rails |
 | $ rails --version | Checks Rails version |
-| $ rails new `application name` | Generates new Application |
+| $ rails new `application-name` | Generates new Application |
 | $ bin/rails routes | Shows routes for all RESTful actions |
-
