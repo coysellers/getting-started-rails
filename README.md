@@ -63,3 +63,29 @@ Rails.application.routes.draw do
     root 'welcome#index'
 end
 ```
+
+
+### Getting Up and Running
+
+Creating a _resource_.
+
+A _resource_ is a collection of similar objects like:
+* articles
+* people
+* animals
+
+> CRUD operations can be used on items in a resources (CRUD - create, read, update and destroy)
+
+Rails provides a _resources_ method that declares a standard _REST_ resource.
+
+
+### Common Commands
+
+| Command | What it does |
+| --- | :---:|
+| $ ruby -v | checks Ruby version |
+| $ sqlite3 --version | Checks sqlite3 version |
+| $ gem install rails | Install Rails |
+| $ rails --version | Checks Rails version |
+| $ rails new `application name` | Generates new Application | 
+
