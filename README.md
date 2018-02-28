@@ -79,6 +79,18 @@ A _resource_ is a collection of similar objects like:
 Rails provides a _resources_ method that declares a standard _REST_ resource.
 
 
+### Laying Down the Ground Work
+
+> A controller is simply a class that is defined to inherit from _ApplicationController_
+
+Run `$ bin/rails generate controller Articles`
+
+```
+class ArticlesController < ApplicationController
+end
+```
+
+
 ### Common Commands
 
 | Command | What it does |
@@ -87,5 +99,6 @@ Rails provides a _resources_ method that declares a standard _REST_ resource.
 | $ sqlite3 --version | Checks sqlite3 version |
 | $ gem install rails | Install Rails |
 | $ rails --version | Checks Rails version |
-| $ rails new `application name` | Generates new Application | 
+| $ rails new `application name` | Generates new Application |
+| $ bin/rails routes | Shows routes for all RESTful actions |
 
