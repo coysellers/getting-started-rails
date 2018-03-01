@@ -2,19 +2,51 @@
 
 The notes below are simply for my personal use and career development. For the source of these notes visit the official [set-by-step guide](http://guides.rubyonrails.org/getting_started.html) to getting starting with Rails.
 
+
+
+
 ## Section Checklist
 
 - [x] 1 Guide Assumptions
 - [x] 2 What is Rails?
 - [x] 3 Creating a New Rails Project
+    - [x] 3.1 Installing Rails
+    - [x] 3.2 Creating the Blog Application
 - [x] 4 Hello, Rails!
+    - [x] 4.1 Starting up the Web Server
+    - [x] 4.2 Say "Hello", Rails
+    - [x] 4.3 Setting the Application Home Page
 - [ ] 5 Getting Up and Running
+    - [x] 5.1 Laying down the groundwork
+    - [x] 5.2 The first form
+    - [x] 5.3 Creating articles
+    - [ ] 5.4 Creating the Article model
+    - [ ] 5.5 Running a Migration
+    - [ ] 5.6 Saving data in the controller
+    - [ ] 5.7 Showing Articles
+    - [ ] 5.8 Listing all articles
+    - [ ] 5.9 Adding links
+    - [ ] 5.10 Adding Some Validation
+    - [ ] 5.11 Updating Articles
+    - [ ] 5.12 Using partials to clean up duplication in views
+    - [ ] 5.13 Deleting Articles
 - [ ] 6 Adding a Second Model
+    - [ ] 6.1 Generating a Model
+    - [ ] 6.2 Associating Models
+    - [ ] 6.3 Adding a Route for Comments
+    - [ ] 6.4 Generating a Controller
 - [ ] 7 Refactoring
+    - [ ] 7.1 Rendering Partial Collections
+    - [ ] 7.2 Rendering a Partial Form
 - [ ] 8 Deleting Comments
+    - [ ] 8.1 Deleting Associated Objects
 - [ ] 9 Security
+    - [ ] 9.1 Basic Authentication
+    - [ ] 9.2 Other Security Considerations
 - [ ] 10 What's Next?
 - [ ] 11 Configuration Gotchas
+
+
 
 
 ## Setup
@@ -24,6 +56,9 @@ The notes below are simply for my personal use and career development. For the s
 * Install Rails globally `$ gem install rails`
 * Verify Rails has been properly installed `$ rails --version`
 
+
+
+
 ### Creating Blog Application
 
 Ruby comes packaged with scripts called `generators`.
@@ -31,10 +66,12 @@ Ruby comes packaged with scripts called `generators`.
 Example: cd to project folder and run `$ rails new blog`.
 * Then cd into the application to work in it `$ cd blog`.
 
+
 ### Server
 
 In application folder, run `$ bin/rails server` then visit http://localhost:3000/.
 * The "Yay! You're on Rails" screen should be displaying.
+
 
 ### Say "Hello"
 
@@ -87,10 +124,42 @@ Run `$ bin/rails generate controller Articles`
 class ArticlesController < ApplicationController
 end
 ```
+There are __public__, __private__, and __protected__ methods in Ruby
+* only __public__ methods can be actions for __controllers__
 
 `/articles/new.html.erb`
 * `.html` is the format
 * `.erb` is the handler
+
+
+### The first form
+
+The __form builder__ is provided by a helper method called `form_with`.
+
+Example Form located here `app/views/articles/new.html.erb`:
+```
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </p>
+    
+    <p>
+        <%= form.label :text %><br>
+        <%= form.text_area :text %>
+    </p>
+    
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
+```
+* The helper `form_with` called and passed an indetifiying scope for the form.
+    * The symbol `:article` is the scope and tells the helper what this form is for.
+* The `FormBuilder` object _(represented by `form`)_ is being used for the two `label`, two `text`, and `submit` fields.
+* By default the `action` attribute points to the current page, _/articles/new)_.
+    * The form needs a different `URL` - `url: articles_path`
+    * In this form the `articles_path` helper is passed to the `:url` option. - `url: articles_path`
 
 
 ### Common Commands
