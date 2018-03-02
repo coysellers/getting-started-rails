@@ -206,6 +206,8 @@ Files created:
 3. blog/test/fixtures/articles.yml
 4. blog/test/models/article_test.rb
 
+> Active Record is used and automatically maps the column names to model attributes.
+
 
 ### Common Commands
 
