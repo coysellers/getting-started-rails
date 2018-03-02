@@ -21,7 +21,7 @@ The notes below are simply for my personal use and career development. For the s
     - [x] 5.2 The first form
     - [x] 5.3 Creating articles
     - [x] 5.4 Creating the Article model
-    - [ ] 5.5 Running a Migration
+    - [x] 5.5 Running a Migration
     - [ ] 5.6 Saving data in the controller
     - [ ] 5.7 Showing Articles
     - [ ] 5.8 Listing all articles
@@ -123,6 +123,7 @@ Rails provides a _resources_ method that declares a standard _REST_ resource.
 
 
 ### 5.1 Laying Down the Ground Work
+
 > A controller is simply a class that is defined to inherit from _ApplicationController_
 
 Run `$ bin/rails generate controller Articles`
@@ -140,6 +141,7 @@ There are __public__, __private__, and __protected__ methods in Ruby
 
 
 ### 5.2 The first form
+
 The __form builder__ is provided by a helper method called `form_with`.
 
 Example Form located here `app/views/articles/new.html.erb`:
@@ -169,6 +171,7 @@ Example Form located here `app/views/articles/new.html.erb`:
 
 
 ### 5.3 Creating articles
+
 * Make a `create` actions within the `ArticlesController` class in _app/controllers/articles_controller.rb_.
 * When submitted the form feilds are sent as _parameters_. Reference these params using the `render` method.
 * Add a key value pair
@@ -209,6 +212,22 @@ Files created:
 > Active Record is used and automatically maps the column names to model attributes.
 
 
+### 5.5 Running a Migration
+
+_Migrations_ are Ruby classes that are designed to make it simple to create and modify database tables.
+
+Run Migration:
+`$ bin/rails db:migrate`
+
+Returned info about migration:
+```
+== 20180302135637 CreateArticles: migrating ===================================
+-- create_table(:articles)
+   -> 0.0013s
+== 20180302135637 CreateArticles: migrated (0.0014s) ==========================
+```
+
+
 ### Common Commands
 
 | Command | What it does |
@@ -219,3 +238,5 @@ Files created:
 | $ rails --version | Checks Rails version |
 | $ rails new `application-name` | Generates new Application |
 | $ bin/rails routes | Shows routes for all RESTful actions |
+| $ bin/rails generate model `model-name` | Generates a model |
+| $ bin/rails db:migrate | Run Migration |
