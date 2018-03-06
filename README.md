@@ -228,6 +228,34 @@ Returned info about migration:
 ```
 
 
+### 5.6 Saving data in the controller
+
+Open app/controllers/articles_controller.rb
+
+Change the `create` action to use the `Article` model:
+```
+def create
+    @article = Article.new(params[:article])
+    
+    @article.save
+    redirect_to @article
+end
+
+private
+    def article_params
+        params.require(:article).permit(:title, :text)
+    end
+```
+* This `@article = Article.new(params[:article])` is a [strong parameter](http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters).
+
+> Side note: Class names in Ruby must begin with a capital letter.
+
+For security purposes, `require` and `permit` must be used to allow the parameters access to `create`.
+* `@article = Article.new(params.require(:article).permit(:title, :text))`
+
+[More on strong parameters](http://weblog.rubyonrails.org/2012/3/21/strong-parameters/)
+
+
 ### Common Commands
 
 | Command | What it does |
